@@ -26,7 +26,8 @@ class ConnectorShell(Connector):
         self.listening = True
         self.reader = None
         self._closing = asyncio.Event()
-        self.loop = asyncio.get_event_loop()
+        # self.loop = asyncio.get_event_loop()
+        self.loop = opsdroid.eventloop
 
         for name in ("LOGNAME", "USER", "LNAME", "USERNAME"):
             user = os.environ.get(name)
